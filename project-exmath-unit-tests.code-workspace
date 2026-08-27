@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "name": "Logginator-Project",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cmake.useCMakePresets": "always",
+    "cmake.configurePreset": "unit-tests",
+    "cmake.buildPreset": "unit-tests",
+    "cmake.testPreset": "unit-tests",
+    "cmake.configureOnOpen": true,
+    "clangd.arguments": [
+      "--compile-commands-dir=${workspaceFolder}/build/unit-tests",
+    ],
+    "clangd.onConfigChanged": "restart"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build (Unit-Tests)",
+        "type": "shell",
+        "command": "cmake --build --preset unit-tests --clean-first && ctest --preset unit-tests --build-and-test --output-on-failure"
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Experimental",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder:Logginator-Project}/build/unit-tests/experimental/Experimental",
+        "args": [],
+        "cwd": "${workspaceFolder}"
+      }
+    ],
+    "compounds": []
+  }
+}
