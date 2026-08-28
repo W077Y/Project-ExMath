@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.19)
 
 
-set(target_name "Experimental")
+set(target_name "TEST-POLYNOMIAL")
  message(STATUS "-> ${target_name}")
 
 
@@ -12,7 +12,7 @@ target_include_directories(${target_name}
 )
 
 target_sources(${target_name}
- PRIVATE "${CMAKE_CURRENT_LIST_DIR}/experimental.cpp"
+ PRIVATE "${CMAKE_CURRENT_LIST_DIR}/tst-polynomial.cpp"
 )
 
 

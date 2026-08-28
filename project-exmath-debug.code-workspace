@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "name": "Project-ExMath-Lib",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cmake.useCMakePresets": "always",
+    "cmake.configurePreset": "Debug",
+    "cmake.buildPreset": "Debug",
+    "cmake.testPreset": "Debug",
+    "cmake.configureOnOpen": true,
+    "clangd.arguments": [
+      "--compile-commands-dir=${workspaceFolder}/build/Debug"
+    ],
+    "clangd.onConfigChanged": "restart"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "cmake: build",
+        "type": "shell",
+        "command": "cmake",
+        "args": ["--build", "--preset", "Debug"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "cmake: clean",
+        "type": "shell",
+        "command": "cmake",
+        "args": ["--build", "--preset", "Debug", "--target", "clean"],
+        "presentation": {
+          "reveal": "always"
+        }
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Experimental",
+        "type": "lldb",
+        "request": "launch",
+        "program": "${workspaceFolder:Project-ExMath-Lib}/build/Debug/experimental/Experimental",
+        "args": [],
+        "cwd": "${workspaceFolder}"
+      }
+    ],
+    "compounds": []
+  }
+}

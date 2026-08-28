@@ -7,18 +7,8 @@
   },
   "configurePresets": [
     {
-      "name": "unit-tests",
+      "name": "Debug",
       "description": "Unit Tests (host)",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/${presetName}",
-      "installDir": "${sourceDir}/install/${presetName}",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
-      }
-    },{
-      "name": "experimental",
-      "description": "experimental",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "installDir": "${sourceDir}/install/${presetName}",
@@ -30,18 +20,15 @@
   ],
   "buildPresets": [
     {
-      "name": "unit-tests",
-      "configurePreset": "unit-tests"
-    },{
-      "name": "experimental",
-      "configurePreset": "experimental"
+      "name": "Debug",
+      "configurePreset": "Debug"
     }
   ],
   "testPresets": [
     {
-      "name": "unit-tests",
+      "name": "Debug",
       "displayName": "Run Unit Tests (Host)",
-      "configurePreset": "unit-tests",
+      "configurePreset": "Debug",
       "configuration": "Debug",
       "output": {
         "outputOnFailure": true
